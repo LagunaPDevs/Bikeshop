@@ -1,6 +1,8 @@
-import * as React from 'react';
-import Stack from '@mui/material/Stack';
+// material-ui
 import NotificationsRoundedIcon from '@mui/icons-material/NotificationsRounded';
+import Stack from '@mui/material/Stack';
+
+// project imports
 import ColorModeIconDropdown from '../theme/ColorModelIconDropdown';
 import MenuButton from './MenuButton';
 import NavbarBreadcrumbs from './NavbarBreadcrumbs';
