@@ -19,7 +19,7 @@ export function BikeCreatorProvider({
 }: {
   children: React.ReactElement;
 }) {
-  const { step, handleNext } = useStepper();
+  const { step, handleNext, setStep } = useStepper();
   const [isLoading, setIsLoading] = useState(true);
   const [rules, setRules] = useState<BicycleRule[]>([]);
   const [frames, setFrames] = useState<Frame[]>([]);
@@ -27,10 +27,12 @@ export function BikeCreatorProvider({
   const [wheels, setWheels] = useState<Wheel[]>([]);
   const [chains, setChains] = useState<Chain[]>([]);
   const [rims, setRims] = useState<Rim[]>([]);
-  const [selectedFrame, setSelectedFrame] = useState<Frame>();
-  const [selectedFrameFinish, setSelectedFrameFinish] = useState<Finish>();
-  const [selectedWheel, setSelectedWheel] = useState<Wheel>();
-  const [selectedRim, setSelectedRim] = useState<Rim>();
+  const [selectedFrame, setSelectedFrame] = useState<Frame | undefined>();
+  const [selectedFrameFinish, setSelectedFrameFinish] = useState<
+    Finish | undefined
+  >();
+  const [selectedWheel, setSelectedWheel] = useState<Wheel | undefined>();
+  const [selectedRim, setSelectedRim] = useState<Rim | undefined>();
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
@@ -147,6 +149,14 @@ export function BikeCreatorProvider({
     (step === 2 && selectedWheel !== undefined) ||
     (step === 3 && selectedRim !== undefined);
 
+  function simulateAnotherBike() {
+    setStep(0);
+    setSelectedFrame(undefined);
+    setSelectedFrameFinish(undefined);
+    setSelectedRim(undefined);
+    setSelectedWheel(undefined);
+  }
+
   return (
     <BikeCreatorContext.Provider
       value={{
@@ -168,6 +178,7 @@ export function BikeCreatorProvider({
         setSelectedRim,
         setSelectedFrameFinish,
         setSelectedWheel,
+        simulateAnotherBike,
       }}
     >
       {children}

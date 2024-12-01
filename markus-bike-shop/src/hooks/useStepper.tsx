@@ -8,5 +8,5 @@ export default function useStepper() {
   const handlePrev = () => {
     setStep((prev) => prev - 1);
   };
-  return { step, handleNext, handlePrev };
+  return { step, handleNext, handlePrev, setStep };
 }

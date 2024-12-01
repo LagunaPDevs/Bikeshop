@@ -16,7 +16,8 @@ import FinalPriceStep from "./FinalPriceStep";
 import useBikeCreator from "../../hooks/useBikeCreator";
 
 export default function BikeCreatorStepper() {
-  const { step, handleNext, isLoading, enableButton } = useBikeCreator();
+  const { step, handleNext, isLoading, enableButton, simulateAnotherBike } =
+    useBikeCreator();
   const steps = [
     { title: "Select frame", step: <FrameStep /> },
     { title: "Select frame finish", step: <Box /> },
@@ -63,6 +64,11 @@ export default function BikeCreatorStepper() {
       {step !== steps.length && enableButton && (
         <Button onClick={handleNext} variant="contained">
           Next
+        </Button>
+      )}
+      {step === steps.length - 1 && (
+        <Button onClick={() => simulateAnotherBike()}>
+          Simulate another bike
         </Button>
       )}
     </Grid2>
