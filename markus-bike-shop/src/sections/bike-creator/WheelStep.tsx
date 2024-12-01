@@ -7,6 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import useBikeCreator from "../../hooks/useBikeCreator";
+import { wheelTypeToTitle } from "../../utils/bikeCreatorUtils";
 
 export default function WheelStep() {
   const { wheels, selectedWheel, setSelectedWheel } = useBikeCreator();
@@ -33,7 +34,7 @@ export default function WheelStep() {
                     alignItems="center"
                     justifyContent="space-between"
                   >
-                    <Typography>{wheel.type}</Typography>
+                    <Typography>{wheelTypeToTitle(wheel.type)}</Typography>
                     <Typography variant="subtitle1">{wheel.price}€</Typography>
                   </Grid2>
                 }

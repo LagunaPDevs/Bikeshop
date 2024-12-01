@@ -21,4 +21,5 @@ export type BikeCreatorContextType = {
   >;
   setSelectedWheel: React.Dispatch<React.SetStateAction<Wheel | undefined>>;
   setSelectedRim: React.Dispatch<React.SetStateAction<Rim | undefined>>;
+  simulateAnotherBike: () => void;
 };

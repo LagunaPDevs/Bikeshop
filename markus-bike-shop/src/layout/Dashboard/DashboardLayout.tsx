@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import AppTheme from "../../theme/AppTheme";
 import SideMenu from "../Menu/SideMenu";
-import AppNavbar from "../../components/AppNavbar";
 import Header from "../Header/Header";
 import { Outlet } from "react-router";
 
@@ -14,7 +13,6 @@ export default function Dashboard(props: { disableCustomTheme?: boolean }) {
       <CssBaseline enableColorScheme />
       <Box sx={{ display: "flex" }}>
         <SideMenu />
-        <AppNavbar />
         <Box
           component="main"
           sx={(theme) => ({

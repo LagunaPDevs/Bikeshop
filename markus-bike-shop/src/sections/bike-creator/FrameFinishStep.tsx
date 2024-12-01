@@ -7,6 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import useBikeCreator from "../../hooks/useBikeCreator";
+import { frameFinishToTitle } from "../../utils/bikeCreatorUtils";
 
 export default function FrameFinishStep() {
   const { frameFinishes, selectedFrameFinish, setSelectedFrameFinish } =
@@ -34,7 +35,7 @@ export default function FrameFinishStep() {
                     alignItems="center"
                     justifyContent="space-between"
                   >
-                    <Typography>{finish.finish}</Typography>
+                    <Typography>{frameFinishToTitle(finish.finish)}</Typography>
                     <Typography variant="subtitle1">{finish.price}€</Typography>
                   </Grid2>
                 }

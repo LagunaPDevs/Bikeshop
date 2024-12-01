@@ -1,4 +1,25 @@
-import { Chain, Finish, Rim, Wheel } from "../types/bicycle";
+import {
+  Chain,
+  ChainType,
+  Finish,
+  FinishType,
+  FrameType,
+  Rim,
+  Wheel,
+  WheelType,
+} from "../types/bicycle";
+import {
+  diamond,
+  eightSpeed,
+  fatBikeWheel,
+  fullSuspension,
+  matte,
+  mountain,
+  road,
+  shiny,
+  singleSpeed,
+  stepThrough,
+} from "./constants/form_constants";
 
 export function setAvailableChoices(result: any) {
   return result.reduce(
@@ -73,4 +94,44 @@ export function setChoicesAfterRules(result: any): {
   );
 
   return categorizedProducts;
+}
+
+export function frameTypeToTitle(frameType: FrameType) {
+  switch (frameType) {
+    case "diamond":
+      return diamond;
+    case "full-suspension":
+      return fullSuspension;
+    case "step-through":
+      return stepThrough;
+  }
+}
+
+export function frameFinishToTitle(frameFinish: FinishType) {
+  switch (frameFinish) {
+    case "matte":
+      return matte;
+    case "shiny":
+      return shiny;
+  }
+}
+
+export function wheelTypeToTitle(wheelType: WheelType) {
+  switch (wheelType) {
+    case "fat":
+      return fatBikeWheel;
+    case "mountain":
+      return mountain;
+    case "road":
+      return road;
+  }
+}
+
+export function chainTypeToTitle(chainType: ChainType) {
+  switch (chainType) {
+    case "8-speed":
+      return eightSpeed;
+    case "single-speed":
+      return singleSpeed;
+  }
 }

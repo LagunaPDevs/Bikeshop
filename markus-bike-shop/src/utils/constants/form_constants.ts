@@ -1,0 +1,10 @@
+export const fullSuspension = "Full suspension";
+export const stepThrough = "Step through";
+export const diamond = "Diamond";
+export const matte = "Matte";
+export const shiny = "Shiny";
+export const mountain = "Mountain";
+export const road = "Road";
+export const fatBikeWheel = "Fat bike wheel";
+export const singleSpeed = "Single speed";
+export const eightSpeed = "8 speed";

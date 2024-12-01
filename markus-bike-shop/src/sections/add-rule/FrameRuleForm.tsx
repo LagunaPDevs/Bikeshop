@@ -4,6 +4,7 @@ import {
   Button,
   FormControl,
   FormControlLabel,
+  FormHelperText,
   Grid2,
   Radio,
   RadioGroup,
@@ -18,26 +19,40 @@ import PriceIncrementField from "../../components/PriceIncrementField";
 import CheckboxField from "../../components/CheckboxField";
 import RuleNameField from "../../components/RuleNameField";
 import useFrameRuleForm from "../../hooks/useFrameRuleForm";
+import {
+  diamond,
+  eightSpeed,
+  fatBikeWheel,
+  fullSuspension,
+  matte,
+  mountain,
+  road,
+  shiny,
+  singleSpeed,
+  stepThrough,
+} from "../../utils/constants/form_constants";
 
 type FrameRuleForm = {};
 
 export default function FrameRuleForm() {
-  const { initialValues, onSubmit } = useFrameRuleForm();
+  const { initialValues, onSubmit, validationSchema } = useFrameRuleForm();
 
   return (
     <Formik
       initialValues={initialValues}
+      validationSchema={validationSchema}
       onSubmit={(values) => {
         onSubmit(values);
       }}
     >
-      {({ isSubmitting, handleChange, handleSubmit, values }) => (
+      {({ isSubmitting, handleChange, handleSubmit, values, errors }) => (
         <Box component="form" onSubmit={handleSubmit}>
           <RuleNameField
             id="name"
             value={values.name}
             onChange={handleChange}
           />
+          {errors.name && <FormHelperText>{errors.name}</FormHelperText>}
           <Grid2 container alignItems="center">
             <Typography variant="subtitle1">Select frame type:</Typography>
             <FormControl fullWidth>
@@ -47,19 +62,19 @@ export default function FrameRuleForm() {
                   control={
                     <Radio checked={values.frameType === "full-suspension"} />
                   }
-                  label="Full suspension"
+                  label={fullSuspension}
                 />
                 <FormControlLabel
                   value="diamond"
                   control={<Radio checked={values.frameType === "diamond"} />}
-                  label="Diamond"
+                  label={diamond}
                 />
                 <FormControlLabel
                   value="step-through"
                   control={
                     <Radio checked={values.frameType === "step-through"} />
                   }
-                  label="Step-through"
+                  label={stepThrough}
                 />
               </RadioGroup>
             </FormControl>
@@ -75,13 +90,13 @@ export default function FrameRuleForm() {
                     id="matteFinish.enabled"
                     checked={values.matteFinish.enabled}
                     onChange={handleChange}
-                    label="Matte"
+                    label={matte}
                   />
                   <CheckboxField
                     id="shinyFinish.enabled"
                     checked={values.shinyFinish.enabled}
                     onChange={handleChange}
-                    label="Shiny"
+                    label={shiny}
                   />
                 </FormControl>
               </Grid2>
@@ -110,19 +125,19 @@ export default function FrameRuleForm() {
                     id="roadWheels.enabled"
                     checked={values.roadWheels.enabled}
                     onChange={handleChange}
-                    label="Road"
+                    label={road}
                   />
                   <CheckboxField
                     id="mountainWheels.enabled"
                     checked={values.mountainWheels.enabled}
                     onChange={handleChange}
-                    label="Mountain"
+                    label={mountain}
                   />
                   <CheckboxField
                     id="fatWheels.enabled"
                     checked={values.fatWheels.enabled}
                     onChange={handleChange}
-                    label="Fat bike wheel"
+                    label={fatBikeWheel}
                   />
                 </FormControl>
               </Grid2>
@@ -154,13 +169,13 @@ export default function FrameRuleForm() {
                     id="singleSpeedChain.enabled"
                     checked={values.singleSpeedChain.enabled}
                     onChange={handleChange}
-                    label="Single speed"
+                    label={singleSpeed}
                   />
                   <CheckboxField
                     id="eightSpeedChain.enabled"
                     checked={values.eightSpeedChain.enabled}
                     onChange={handleChange}
-                    label="8-speed"
+                    label={eightSpeed}
                   />
                 </FormControl>
               </Grid2>

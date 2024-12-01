@@ -1,8 +1,18 @@
+import { useNavigate } from "react-router";
+
+// database
 import { insertRule } from "../services/apiRules";
+
+// project imports
 import { WheelRuleFormType } from "../types/form";
-import { wheelRuleToBicycleRule } from "../utils/wheelRuleFormUtils";
+import {
+  wheelRuleToBicycleRule,
+  validationSchema,
+} from "../utils/wheelRuleFormUtils";
+import { rulesPath } from "../utils/constants/route_constants";
 
 export default function useWheelRuleForm() {
+  const navigate = useNavigate();
   const initialValues: WheelRuleFormType = {
     name: "",
     wheelType: "road",
@@ -16,10 +26,11 @@ export default function useWheelRuleForm() {
   const onSubmit = async (values: WheelRuleFormType) => {
     try {
       const result = await insertRule(wheelRuleToBicycleRule(values));
+      navigate(rulesPath);
       return result;
     } catch (e) {
       console.log(e);
     }
   };
-  return { initialValues, onSubmit };
+  return { initialValues, validationSchema, onSubmit };
 }

@@ -21,7 +21,7 @@ const mainListItems = [
     path: rulesPath,
   },
   {
-    text: "Bike creator",
+    text: "Bike simulator",
     icon: <PedalBikeIcon />,
     path: bikeCreator,
   },
