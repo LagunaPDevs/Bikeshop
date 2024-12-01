@@ -3,7 +3,7 @@ import { BikeCreatorContextType } from "../types/context";
 import { Chain, Finish, Frame, Rim, Wheel } from "../types/bicycle";
 import { getProducts } from "../services/apiProducts";
 import { BicycleRule } from "../types/rules";
-import { getRules } from "../services/apiRules";
+import { getEnabledRules } from "../services/apiRules";
 import {
   setAvailableChoices,
   setChoicesAfterRules,
@@ -117,7 +117,7 @@ export function BikeCreatorProvider({
   }
   async function getProductRules() {
     try {
-      const result = await getRules();
+      const result = await getEnabledRules();
       if (result) {
         setRules(result);
       }
