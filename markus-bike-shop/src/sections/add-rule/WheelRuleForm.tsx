@@ -2,6 +2,7 @@
 import {
   Box,
   Button,
+  capitalize,
   FormControl,
   FormControlLabel,
   FormHelperText,
@@ -73,7 +74,7 @@ export default function WheelRuleForm() {
                       key={color.rimColor}
                       id="color"
                       checked={color.enabled}
-                      label={color.rimColor}
+                      label={capitalize(color.rimColor)}
                       onChange={(e, checked) => {
                         handleChange(e);
                         color.enabled = checked;

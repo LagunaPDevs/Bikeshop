@@ -1,4 +1,5 @@
 import {
+  capitalize,
   FormControl,
   FormControlLabel,
   Grid2,
@@ -33,7 +34,7 @@ export default function RimStep() {
                     alignItems="center"
                     justifyContent="space-between"
                   >
-                    <Typography>{rim.color}</Typography>
+                    <Typography>{capitalize(rim.color)}</Typography>
                     <Typography variant="subtitle1">{rim.price}€</Typography>
                   </Grid2>
                 }

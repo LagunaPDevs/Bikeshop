@@ -7,6 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import useBikeCreator from "../../hooks/useBikeCreator";
+import { frameTypeToTitle } from "../../utils/bikeCreatorUtils";
 
 export default function FrameStep() {
   const { frames, selectedFrame, setSelectedFrame } = useBikeCreator();
@@ -34,7 +35,7 @@ export default function FrameStep() {
                     alignItems="center"
                     justifyContent="space-between"
                   >
-                    <Typography>{frame.type}</Typography>
+                    <Typography>{frameTypeToTitle(frame.type)}</Typography>
                     <Typography variant="subtitle1">{frame.price}€</Typography>
                   </Grid2>
                 }
