@@ -8,9 +8,11 @@ import AddRule from "./pages/AddRule";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import {
   addRulePath,
+  bikeCreator,
   rootPath,
   rulesPath,
 } from "./utils/constants/route_constants";
+import BikeCreator from "./pages/BikeCreator";
 
 function App() {
   return (
@@ -19,9 +21,10 @@ function App() {
         <Locales>
           <Routes>
             <Route path={rootPath} element={<Dashboard />}>
-              <Route index element={<Navigate replace to="rules" />} />
+              <Route index element={<Navigate replace to={rulesPath} />} />
               <Route path={rulesPath} element={<RulesList />} />
               <Route path={addRulePath} element={<AddRule />} />
+              <Route path={bikeCreator} element={<BikeCreator />} />
             </Route>
           </Routes>
         </Locales>

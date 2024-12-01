@@ -69,9 +69,11 @@ export default function WheelRuleForm() {
                     <CheckboxField
                       key={color.rimColor}
                       id="color"
-                      checked={values.rimColors[index].enabled}
+                      checked={color.enabled}
                       label={color.rimColor}
-                      onChange={(_, checked) => {
+                      onChange={(e, checked) => {
+                        handleChange(e);
+                        color.enabled = checked;
                         arrayHelpers.replace(index, {
                           enabled: checked,
                           rimColor: color.rimColor,

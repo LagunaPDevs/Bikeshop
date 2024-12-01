@@ -11,24 +11,25 @@ import PedalBikeIcon from "@mui/icons-material/PedalBike";
 import GavelIcon from "@mui/icons-material/Gavel";
 
 // router
-import { useNavigate } from "react-router";
-import { rootPath, rulesPath } from "../../utils/constants/route_constants";
+import { useLocation, useNavigate } from "react-router";
+import { bikeCreator, rulesPath } from "../../utils/constants/route_constants";
 
 const mainListItems = [
-  {
-    text: "Bike creator",
-    icon: <PedalBikeIcon />,
-    path: rootPath,
-  },
   {
     text: "Product rules",
     icon: <GavelIcon />,
     path: rulesPath,
   },
+  {
+    text: "Bike creator",
+    icon: <PedalBikeIcon />,
+    path: bikeCreator,
+  },
 ];
 
 export default function MenuContent() {
   const navigate = useNavigate();
+  const location = useLocation();
   return (
     <Stack sx={{ flexGrow: 1, p: 1, justifyContent: "space-between" }}>
       <List dense>
@@ -39,7 +40,7 @@ export default function MenuContent() {
             sx={{ display: "block" }}
             onClick={() => navigate(item.path)}
           >
-            <ListItemButton selected={index === 0}>
+            <ListItemButton selected={location.pathname === item.path}>
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemButton>

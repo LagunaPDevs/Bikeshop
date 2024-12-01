@@ -1,6 +1,13 @@
 export interface Product {
   id: string;
-  productType: ProductType;
+  type: ProductType;
+  product: any;
 }
 
-export type ProductType = "bicycle" | "frame" | "wheel" | "rim";
+export type ProductType =
+  | "bicycle"
+  | "frame"
+  | "wheel"
+  | "rim"
+  | "chain"
+  | "finish";
