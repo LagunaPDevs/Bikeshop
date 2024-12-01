@@ -1,6 +1,12 @@
 import { WheelRuleFormType } from "../types/form";
 import { BicycleRule, RuleCondition } from "../types/rules";
 
+import * as Yup from "yup";
+
+export const validationSchema = Yup.object().shape({
+  name: Yup.string().required(),
+});
+
 export const initialValues: WheelRuleFormType = {
   name: "",
   wheelType: "road",

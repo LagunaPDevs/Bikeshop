@@ -4,6 +4,7 @@ import {
   Button,
   FormControl,
   FormControlLabel,
+  FormHelperText,
   Grid2,
   Radio,
   RadioGroup,
@@ -19,22 +20,24 @@ import CheckboxField from "../../components/CheckboxField";
 import RuleNameField from "../../components/RuleNameField";
 
 export default function WheelRuleForm() {
-  const { initialValues, onSubmit } = useWheelRuleForm();
+  const { initialValues, onSubmit, validationSchema } = useWheelRuleForm();
 
   return (
     <Formik
       initialValues={initialValues}
+      validationSchema={validationSchema}
       onSubmit={(values) => {
         onSubmit(values);
       }}
     >
-      {({ isSubmitting, handleChange, handleSubmit, values }) => (
+      {({ isSubmitting, handleChange, handleSubmit, values, errors }) => (
         <Box component="form" onSubmit={handleSubmit}>
           <RuleNameField
             id="name"
             value={values.name}
             onChange={handleChange}
           />
+          {errors.name && <FormHelperText>{errors.name}</FormHelperText>}
           <Grid2 container>
             <Typography variant="subtitle1">Select wheel type:</Typography>
             <FormControl fullWidth>
