@@ -21,6 +21,17 @@ export async function insertRule(rule: any) {
   return data;
 }
 
+export async function getRuleByID(id: number) {
+  const { data, error } = await supabaseClient
+    .from("product-rules")
+    .select("*")
+    .eq("id", id);
+  if (error) {
+    throw new Error("Error getting rule");
+  }
+  return data;
+}
+
 export async function updateRule(rule: any, id: number) {
   const { data, error } = await supabaseClient
     .from("product-rules")
@@ -29,6 +40,17 @@ export async function updateRule(rule: any, id: number) {
     .select();
   if (error) {
     throw new Error("Error updating rule");
+  }
+  return data;
+}
+
+export async function deleteRule(id: number) {
+  const { data, error } = await supabaseClient
+    .from("product-rules")
+    .delete()
+    .eq("id", id);
+  if (error) {
+    throw new Error("Error deleting rule");
   }
   return data;
 }
