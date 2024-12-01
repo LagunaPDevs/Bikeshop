@@ -1,10 +1,10 @@
 export interface Rule {
-  id: number;
+  id?: number;
   name: string;
   isActive: boolean;
   conditions: RuleCondition[];
 }
-type RuleCondition = { [key: string]: string | number | boolean | any };
+export type RuleCondition = { [key: string]: string | number | boolean | any };
 
 export interface BicycleRule extends Rule {
   type: BicycleRuleType;
