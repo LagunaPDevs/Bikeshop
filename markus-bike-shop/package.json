@@ -16,8 +16,13 @@
     "@mui/icons-material": "^6.1.9",
     "@mui/material": "^6.1.9",
     "@supabase/supabase-js": "^2.46.2",
+    "@tanstack/react-table": "^8.20.5",
+    "formik": "^2.4.6",
+    "markus-bike-shop": "file:",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-intl": "^7.0.1",
+    "react-router": "^7.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
