@@ -4,9 +4,11 @@ This project provides a flexible framework for configuring custom bikes and inst
 
 ## Project Setup
 
+Use code with caution
+
 **Prerequisites:**
 
-Node.js and npm (or yarn) installed.
+Node.js and npm (or yarn) installed. Node.js version 18 or newer is necessary to run this project.
 
 **Installation:**
 
@@ -14,13 +16,9 @@ Clone the repository:
 
 ```git clone https://github.com/LagunaPDevs/Bikeshop.git```
 
-Use code with caution.
-
 Install dependencies:
 
 ```npm install```
-
-Use code with caution.
 
 **Configuration:**
 
@@ -31,8 +29,6 @@ Before running the project, you'll need to create a .env file in the project roo
 To start the development server:
 
 ```npm run dev```
-
-Use code with caution.
 
 This will start a local development server, typically at http://localhost:5173.
 
