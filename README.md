@@ -39,8 +39,6 @@ Bash
 
 ```npm run build```
 
-Use code with caution.
-
 This will create an optimized build in the dist folder.
 
 **Deployment:**
