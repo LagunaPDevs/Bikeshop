@@ -13,9 +13,15 @@ export default function BikeItemPrice({
 }: BikeItemPriceProps) {
   return (
     <Grid2 container spacing={2} justifyContent="space-between">
-      <Typography>{title}</Typography>
-      <Typography>{item}</Typography>
-      <Typography>{price} €</Typography>
+      <Grid2 size={4}>
+        <Typography>{title}</Typography>
+      </Grid2>
+      <Grid2 size={4} sx={{ display: "flex", justifyContent: "center" }}>
+        <Typography>{item}</Typography>
+      </Grid2>
+      <Grid2 size={4} sx={{ display: "flex", justifyContent: "flex-end" }}>
+        <Typography>{price} €</Typography>
+      </Grid2>
     </Grid2>
   );
 }
