@@ -12,13 +12,13 @@ Node.js and npm (or yarn) installed.
 
 Clone the repository:
 
-``git clone https://github.com/LagunaPDevs/Bikeshop.git`
+```git clone https://github.com/LagunaPDevs/Bikeshop.git```
 
 Use code with caution.
 
 Install dependencies:
 
-``npm install`
+```npm install```
 
 Use code with caution.
 
@@ -30,7 +30,7 @@ Before running the project, you'll need to create a .env file in the project roo
 
 To start the development server:
 
-``npm run dev`
+```npm run dev```
 
 Use code with caution.
 
@@ -41,7 +41,7 @@ This will start a local development server, typically at http://localhost:5173.
 To build the project for production:
 Bash
 
-``npm run build`
+```npm run build```
 
 Use code with caution.
 
