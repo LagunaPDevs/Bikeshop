@@ -22,7 +22,7 @@ Install dependencies:
 
 **Configuration:**
 
-Before running the project, you'll need to create a .env file in the project root directory. Use the provided .env.example file as a template. Replace the placeholder values with your actual environment variables.
+Before running the project, you'll need to create a ```.env``` file in the project root directory. Use the provided ```.env.example``` file as a template. Replace the placeholder values with your actual environment variables.
 
 **Development:**
 
