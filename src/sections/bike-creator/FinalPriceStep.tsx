@@ -1,4 +1,4 @@
-import { Grid2, Typography } from "@mui/material";
+import { Box, Grid2, Typography } from "@mui/material";
 import useBikeCreator from "../../hooks/useBikeCreator";
 import BikeItemPrice from "../../components/BikeItemPrice";
 
@@ -11,7 +11,7 @@ export default function FinalPriceStep() {
     totalPrice,
   } = useBikeCreator();
   return (
-    <Grid2 sx={{ width: "100%" }}>
+    <Box>
       <BikeItemPrice
         title="Frame"
         item={selectedFrame?.type}
@@ -36,6 +36,6 @@ export default function FinalPriceStep() {
         <Typography variant="h6">Total</Typography>
         <Typography variant="h6">{totalPrice}€</Typography>
       </Grid2>
-    </Grid2>
+    </Box>
   );
 }

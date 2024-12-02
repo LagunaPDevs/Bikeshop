@@ -10,6 +10,17 @@ export async function getRules() {
   return data;
 }
 
+export async function getEnabledRules() {
+  const { data, error } = await supabaseClient
+    .from("product-rules")
+    .select("*")
+    .eq("isActive", true);
+  if (error) {
+    throw new Error("Error getting enabled rules");
+  }
+  return data;
+}
+
 export async function insertRule(rule: any) {
   const { data, error } = await supabaseClient
     .from("product-rules")
