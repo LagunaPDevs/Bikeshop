@@ -151,6 +151,7 @@ export function BikeCreatorProvider({
 
   function simulateAnotherBike() {
     setStep(0);
+    setTotalPrice(0);
     setSelectedFrame(undefined);
     setSelectedFrameFinish(undefined);
     setSelectedRim(undefined);
