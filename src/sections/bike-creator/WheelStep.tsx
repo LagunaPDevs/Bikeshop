@@ -6,16 +6,18 @@ import {
   RadioGroup,
   Typography,
 } from "@mui/material";
+
 import useBikeCreator from "../../hooks/useBikeCreator";
 import { wheelTypeToTitle } from "../../utils/bikeCreatorUtils";
 
 export default function WheelStep() {
-  const { wheels, selectedWheel, setSelectedWheel } = useBikeCreator();
+  const { ruledProductList, selectedWheel, setSelectedWheel } =
+    useBikeCreator();
   return (
     <Grid2>
       <FormControl>
         <RadioGroup>
-          {wheels.map((wheel) => {
+          {ruledProductList.wheels.map((wheel) => {
             return (
               <FormControlLabel
                 key={wheel.type}

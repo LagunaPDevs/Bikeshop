@@ -8,16 +8,26 @@ import {
   StepLabel,
   Stepper,
 } from "@mui/material";
+
 import FrameStep from "./FrameStep";
 import FrameFinishStep from "./FrameFinishStep";
 import WheelStep from "./WheelStep";
 import RimStep from "./RimStep";
 import FinalPriceStep from "./FinalPriceStep";
+
 import useBikeCreator from "../../hooks/useBikeCreator";
+import useStepper from "../../hooks/useStepper";
 
 export default function BikeCreatorStepper() {
-  const { step, handleNext, isLoading, enableButton, simulateAnotherBike } =
-    useBikeCreator();
+  const { step, handleNext } = useStepper();
+  const {
+    selectedFrame,
+    selectedFrameFinish,
+    selectedRim,
+    selectedWheel,
+    isLoading,
+    simulateAnotherBike,
+  } = useBikeCreator();
   const steps = [
     { title: "Select frame", step: <FrameStep /> },
     { title: "Select frame finish", step: <Box /> },
@@ -25,6 +35,12 @@ export default function BikeCreatorStepper() {
     { title: "Select rim color", step: <Box /> },
     { title: "Done", step: <Box /> },
   ];
+
+  const enableButton =
+    (step === 0 && selectedFrame !== undefined) ||
+    (step === 1 && selectedFrameFinish !== undefined) ||
+    (step === 2 && selectedWheel !== undefined) ||
+    (step === 3 && selectedRim !== undefined);
 
   return (
     <Grid2

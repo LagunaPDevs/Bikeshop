@@ -6,17 +6,18 @@ import {
   RadioGroup,
   Typography,
 } from "@mui/material";
+
 import useBikeCreator from "../../hooks/useBikeCreator";
 import { frameFinishToTitle } from "../../utils/bikeCreatorUtils";
 
 export default function FrameFinishStep() {
-  const { frameFinishes, selectedFrameFinish, setSelectedFrameFinish } =
+  const { ruledProductList, selectedFrameFinish, setSelectedFrameFinish } =
     useBikeCreator();
   return (
     <Grid2>
       <FormControl>
         <RadioGroup>
-          {frameFinishes.map((finish) => {
+          {ruledProductList.finishes.map((finish) => {
             return (
               <FormControlLabel
                 key={finish.finish}
@@ -39,7 +40,7 @@ export default function FrameFinishStep() {
                     <Typography variant="subtitle1">{finish.price}€</Typography>
                   </Grid2>
                 }
-                value={finish.finish}
+                value={finish.type}
               />
             );
           })}
