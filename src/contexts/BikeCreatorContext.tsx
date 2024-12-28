@@ -30,7 +30,6 @@ import {
   setAvailableChoices,
   setChoicesAfterRules,
 } from "../utils/bikeCreatorUtils";
-
 export const BikeCreatorContext = createContext<BikeCreatorContextType | null>(
   null
 );
@@ -108,7 +107,7 @@ export function BikeCreatorProvider({
 
       const updateFrameFinishes = categorizedRules.finishes.map((f) => {
         const ruledFinish = state!.initialProductList.finishes.find(
-          (cat) => cat.finish === f.finish
+          (cat) => cat.type === f.type
         );
         return { ...f, price: (ruledFinish?.price || 0) + f.price };
       });
@@ -135,7 +134,6 @@ export function BikeCreatorProvider({
       },
     });
   }
-
   function setSelectedWheel(selected: Wheel) {
     const ruleOfCurrentWheel = state!.bicycleRules.find(
       (rule) => rule.type === "wheel" && rule.value === selected.type
@@ -146,9 +144,9 @@ export function BikeCreatorProvider({
       // in rim colors
       const categorizedRules = setChoicesAfterRules(ruleOfCurrentWheel);
 
-      const availableRims = categorizedRules.colors.reduce((acc, color) => {
+      const availableRims = categorizedRules.rims.reduce((acc, color) => {
         const ruledColor = state!.initialProductList.rims.find(
-          (r) => r.color === color
+          (r) => r.type === color.type
         );
         if (ruledColor) acc.push(ruledColor);
         return acc;

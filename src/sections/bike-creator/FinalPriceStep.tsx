@@ -1,5 +1,7 @@
 import { Box, Grid2, Typography } from "@mui/material";
+
 import useBikeCreator from "../../hooks/useBikeCreator";
+
 import BikeItemPrice from "../../components/BikeItemPrice";
 
 export default function FinalPriceStep() {
@@ -19,7 +21,7 @@ export default function FinalPriceStep() {
       />
       <BikeItemPrice
         title="Frame finish"
-        item={selectedFrameFinish?.finish}
+        item={selectedFrameFinish?.type}
         price={selectedFrameFinish?.price}
       />
       <BikeItemPrice
@@ -29,7 +31,7 @@ export default function FinalPriceStep() {
       />
       <BikeItemPrice
         title="Rim color"
-        item={selectedRim?.color}
+        item={selectedRim?.type}
         price={selectedRim?.price}
       />
       <Grid2 container justifyContent="space-between">

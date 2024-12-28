@@ -13,14 +13,14 @@ export const initialValues: FrameRuleFormType = {
   matteFinish: {
     enabled: true,
     finish: {
-      finish: "matte",
+      type: "matte",
       price: 0,
     },
   },
   shinyFinish: {
     enabled: true,
     finish: {
-      finish: "shiny",
+      type: "shiny",
       price: 0,
     },
   },

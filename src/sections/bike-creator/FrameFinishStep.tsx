@@ -13,6 +13,7 @@ import { frameFinishToTitle } from "../../utils/bikeCreatorUtils";
 export default function FrameFinishStep() {
   const { ruledProductList, selectedFrameFinish, setSelectedFrameFinish } =
     useBikeCreator();
+
   return (
     <Grid2>
       <FormControl>
@@ -20,10 +21,10 @@ export default function FrameFinishStep() {
           {ruledProductList.finishes.map((finish) => {
             return (
               <FormControlLabel
-                key={finish.finish}
+                key={finish.type}
                 control={
                   <Radio
-                    checked={selectedFrameFinish?.finish === finish.finish}
+                    checked={selectedFrameFinish?.type === finish.type}
                     onChange={() => {
                       setSelectedFrameFinish(finish);
                     }}
@@ -36,7 +37,7 @@ export default function FrameFinishStep() {
                     alignItems="center"
                     justifyContent="space-between"
                   >
-                    <Typography>{frameFinishToTitle(finish.finish)}</Typography>
+                    <Typography>{frameFinishToTitle(finish.type)}</Typography>
                     <Typography variant="subtitle1">{finish.price}€</Typography>
                   </Grid2>
                 }

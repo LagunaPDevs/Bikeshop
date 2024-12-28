@@ -19,7 +19,7 @@ import useBikeCreator from "../../hooks/useBikeCreator";
 import useStepper from "../../hooks/useStepper";
 
 export default function BikeCreatorStepper() {
-  const { step, handleNext } = useStepper();
+  const { step, handleNext, setStep } = useStepper();
   const {
     selectedFrame,
     selectedFrameFinish,
@@ -83,7 +83,12 @@ export default function BikeCreatorStepper() {
         </Button>
       )}
       {step === steps.length - 1 && (
-        <Button onClick={() => simulateAnotherBike()}>
+        <Button
+          onClick={() => {
+            setStep(0);
+            simulateAnotherBike();
+          }}
+        >
           Simulate another bike
         </Button>
       )}
