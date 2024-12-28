@@ -10,12 +10,13 @@ import useBikeCreator from "../../hooks/useBikeCreator";
 import { frameTypeToTitle } from "../../utils/bikeCreatorUtils";
 
 export default function FrameStep() {
-  const { frames, selectedFrame, setSelectedFrame } = useBikeCreator();
+  const { ruledProductList, selectedFrame, setSelectedFrame } =
+    useBikeCreator();
   return (
     <Grid2>
       <FormControl>
         <RadioGroup>
-          {frames.map((frame) => {
+          {ruledProductList.frames.map((frame) => {
             return (
               <FormControlLabel
                 key={frame.type}

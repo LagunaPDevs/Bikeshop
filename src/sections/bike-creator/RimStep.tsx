@@ -10,18 +10,18 @@ import {
 import useBikeCreator from "../../hooks/useBikeCreator";
 
 export default function RimStep() {
-  const { rims, selectedRim, setSelectedRim } = useBikeCreator();
+  const { ruledProductList, selectedRim, setSelectedRim } = useBikeCreator();
   return (
     <Grid2>
       <FormControl>
         <RadioGroup>
-          {rims.map((rim) => {
+          {ruledProductList.rims.map((rim) => {
             return (
               <FormControlLabel
-                key={rim.color}
+                key={rim.type}
                 control={
                   <Radio
-                    checked={rim.color === selectedRim?.color}
+                    checked={rim.type === selectedRim?.type}
                     onChange={() => {
                       setSelectedRim(rim);
                     }}
@@ -34,11 +34,11 @@ export default function RimStep() {
                     alignItems="center"
                     justifyContent="space-between"
                   >
-                    <Typography>{capitalize(rim.color)}</Typography>
+                    <Typography>{capitalize(rim.type)}</Typography>
                     <Typography variant="subtitle1">{rim.price}€</Typography>
                   </Grid2>
                 }
-                value={rim.color}
+                value={rim.type}
               />
             );
           })}

@@ -8,6 +8,7 @@ import {
   Wheel,
   WheelType,
 } from "../types/bicycle";
+import { BikeProductList } from "../types/bike-creator";
 import {
   diamond,
   eightSpeed,
@@ -54,13 +55,7 @@ export function setAvailableChoices(result: any) {
   );
 }
 
-export function setChoicesAfterRules(result: any): {
-  chains: Chain[];
-  finishes: Finish[];
-  colors: string[];
-  rims: Rim[];
-  wheels: Wheel[];
-} {
+export function setChoicesAfterRules(result: any): BikeProductList {
   const categorizedProducts = result.reduce(
     (acc: any, r: any) => {
       const [key, value] = Object.entries(r)[0];
@@ -72,7 +67,10 @@ export function setChoicesAfterRules(result: any): {
           acc.finishes.push(value as Finish);
           break;
         case "colors":
-          acc.colors = value as string[];
+          const colorArray = value as string[];
+          colorArray.forEach((color) => {
+            acc.rims.push({ type: color });
+          });
           break;
         case "rim":
           acc.rims.push(value as Rim);
@@ -94,6 +92,21 @@ export function setChoicesAfterRules(result: any): {
   );
 
   return categorizedProducts;
+}
+
+export function updatedBikeProductList(
+  fullList: BikeProductList,
+  availableChoices: BikeProductList
+) {
+  const updatedList = (category: keyof BikeProductList) => {
+    const ruledList = availableChoices[category].map((k) => {
+      const ruledValue = fullList[category].find((cat) => cat.type === k.type);
+      return { ...k, price: (ruledValue?.price || 0) + k.price };
+    });
+    return ruledList;
+  };
+
+  return updatedList;
 }
 
 export function frameTypeToTitle(frameType: FrameType) {
